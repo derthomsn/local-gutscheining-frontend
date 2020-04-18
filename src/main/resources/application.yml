@@ -1,0 +1,42 @@
+coupon:
+    mail:
+        subject: 'Vielen Dank für Deinen Support #localgutscheining'
+frontend:
+    url: http://localhost:8082
+mail:
+    service:
+        activated: false
+spring:
+    data:
+        mongodb:
+            auto-index-creation: false
+            database: corona-coupon
+            host: localhost
+            port: 27017
+    mail:
+        host: smtp.googlemail.com
+        password: *****
+        properties:
+            mail:
+                smtp:
+                    auth: true
+                    port: 587
+                    ssl:
+                        enable: false
+                    starttls:
+                        enable: true
+                        required: true
+                transport:
+                    protocol: smtp
+        username: user
+    servlet:
+        multipart:
+            enabled: true
+            max-file-size: 256MB
+            max-request-size: 256MB
+transformHtmlToPdf:
+    baseUri: https://pdf-transformer-url
+    engine: wkhtml
+    password: *****
+    userName: user
+

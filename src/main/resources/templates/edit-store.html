@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+<head>
+    <title>Edit store</title>
+</head>
+<body>
+<section layout:fragment="content">
+
+	<a style="margin:20px;" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" th:href="@{/backoffice/stores/list}"><span class="material-icons">keyboard_backspace</span>Back to list</a>
+
+    <div class="" style="margin: 20px;">
+        <form action="#" th:action="@{/backoffice/stores/edit/save/{id}(id=${id})}" th:object="${store}" method="post" enctype="multipart/form-data">
+        	<h4>Store</h4>
+            <label class="mdl-textfield mdl-js-textfield" for="name">
+                <label class="mdl-textfield__label">Name</label>
+                <input class="mdl-textfield__input" type="text" th:field="*{name}" id="name">
+                <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+            </label>
+            
+            <label class="mdl-textfield mdl-js-textfield" for="email">
+                <label class="mdl-textfield__label">Email (public)</label>
+                <input class="mdl-textfield__input" type="text" th:field="*{email}" id="email">
+                <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+            </label>
+            
+            <label class="mdl-textfield mdl-js-textfield" for="emailinternal">
+                <label class="mdl-textfield__label">Email (internal)</label>
+                <input class="mdl-textfield__input" type="text" th:field="*{emailinternal}" id="emailinternal">
+                <span th:if="${#fields.hasErrors('emailinternal')}" th:errors="*{emailinternal}"></span>
+            </label>
+            
+            <label class="mdl-textfield mdl-js-textfield" for="slogan">
+                <label class="mdl-textfield__label">Very Catchy Slogan</label>
+                <input class="mdl-textfield__input" type="text" th:field="*{slogan}" id="slogan">
+                <span th:if="${#fields.hasErrors('slogan')}" th:errors="*{slogan}"></span>
+            </label>
+            
+            <label class="mdl-textfield mdl-js-textfield" for="description">
+                <label class="mdl-textfield__label">Description</label>
+                <input class="mdl-textfield__input" type="text" th:field="*{description}" id="description">
+                <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
+            </label>
+            
+            <label class="mdl-textfield mdl-js-textfield" for="telnumber">
+                <label class="mdl-textfield__label">Tel.:</label>
+                <input class="mdl-textfield__input" type="text" th:field="*{telnumber}" id="telnumber">
+                <span th:if="${#fields.hasErrors('telnumber')}" th:errors="*{telnumber}"></span>
+            </label>
+        	<hr>
+        	
+	        <h4>Address</h4>
+	        <div th:insert="edit-address"></div>
+	        
+	        <hr>
+			
+			<h4>Paypal</h4>
+			<div th:insert="edit-paypal"></div>
+			
+			<br>
+			
+			<h4>Social</h4>
+			<div th:insert="edit-socialmedia"></div>
+			
+			<br>
+    
+            <h5>Company Logo</h5>
+            <label class="mdl-textfield mdl-js-textfield" for="logo">
+                <input class="mdl-textfield__input" type="file" accept="image/*" th:field="*{logo}" id="logo">
+                <span th:if="${#fields.hasErrors('logo')}" th:errors="*{logo}"></span>
+            </label>
+            
+            <hr>
+            
+            <h5>Company Thumbnail</h5>
+            <label class="mdl-textfield mdl-js-textfield" for="thumbnail">
+                <input class="mdl-textfield__input" type="file" accept="image/*" th:field="*{thumbnail}" id="thumbnail">
+                <span th:if="${#fields.hasErrors('thumbnail')}" th:errors="*{thumbnail}"></span>
+            </label>
+            
+            <hr>
+            
+            <h5>Cover photo</h5>
+            <label class="mdl-textfield mdl-js-textfield" for="coverphoto">
+                <input class="mdl-textfield__input" type="file" accept="image/*" th:field="*{coverphoto}" id="coverphoto">
+                <span th:if="${#fields.hasErrors('coverphoto')}" th:errors="*{coverphoto}"></span>
+            </label>  
+    
+            <input type="submit" value="Save changes" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+		</form>
+    </div>
+</section>
+</body>
+</html>

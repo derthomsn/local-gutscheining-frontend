@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<body>
+		<label class="mdl-textfield mdl-js-textfield">
+            <label class="mdl-textfield__label" for="address.name">Name</label>
+            <input class="mdl-textfield__input" type="text" th:field="*{address.name}" id="address.name">
+            <span th:if="${#fields.hasErrors('address.name')}" th:errors="*{address.name}"></span>
+        </label>
+        
+        <label class="mdl-textfield mdl-js-textfield" for="address.street">
+            <label class="mdl-textfield__label">Street</label>
+            <input class="mdl-textfield__input" type="text" th:field="*{address.street}" id="address.street">
+            <span th:if="${#fields.hasErrors('address.street')}" th:errors="*{address.street}"></span>
+        </label>
+        
+        <label class="mdl-textfield mdl-js-textfield" for="address.houseNumber">
+            <label class="mdl-textfield__label">houseNumber</label>
+            <input class="mdl-textfield__input" type="text" th:field="*{address.houseNumber}" id="address.houseNumber">
+            <span th:if="${#fields.hasErrors('address.houseNumber')}" th:errors="*{address.houseNumber}"></span>
+        </label>
+    
+        <label class="mdl-textfield mdl-js-textfield" for="address.zipCode">
+            <label class="mdl-textfield__label">zipCode</label>
+            <input class="mdl-textfield__input" type="text" th:field="*{address.zipCode}" id="address.zipCode">
+            <span th:if="${#fields.hasErrors('address.zipCode')}" th:errors="*{address.zipCode}"></span>
+        </label>
+            
+        <label class="mdl-textfield mdl-js-textfield" for="address.city">
+            <label class="mdl-textfield__label">city</label>
+            <input class="mdl-textfield__input" type="text" th:field="*{address.city}" id="address.city">
+            <span th:if="${#fields.hasErrors('address.city')}" th:errors="*{address.city}"></span>
+        </label>
+</body>
+</html>

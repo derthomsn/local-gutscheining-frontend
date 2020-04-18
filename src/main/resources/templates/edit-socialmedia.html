@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<body>
+    <label class="mdl-textfield mdl-js-textfield" for="socialLinkedin">
+        <span class="mdl-textfield__label">Twitter</span>
+        <input class="mdl-textfield__input" type="text" th:field="*{socialLinkedin}" id="socialLinkedin">
+        <span th:if="${#fields.hasErrors('socialLinkedin')}" th:errors="*{socialLinkedin}"></span>
+    </label>
+    
+    <label class="mdl-textfield mdl-js-textfield" for="socialFacebook">
+        <span class="mdl-textfield__label">Facebook</span>
+        <input class="mdl-textfield__input" type="text" th:field="*{socialFacebook}" id="socialFacebook">
+        <span th:if="${#fields.hasErrors('socialFacebook')}" th:errors="*{socialFacebook}"></span>
+    </label>
+    
+    <label class="mdl-textfield mdl-js-textfield" for="socialInstagram">
+        <span class="mdl-textfield__label">Instagram</span>
+        <input class="mdl-textfield__input" type="text" th:field="*{socialInstagram}" id="socialInstagram">
+        <span th:if="${#fields.hasErrors('socialInstagram')}" th:errors="*{socialInstagram}"></span>
+    </label>
+    
+    <label class="mdl-textfield mdl-js-textfield" for="website">
+        <label class="mdl-textfield__label">Website</label>
+       	<input class="mdl-textfield__input" type="text" th:field="*{website}" id="website">
+        <span th:if="${#fields.hasErrors('website')}" th:errors="*{website}"></span>
+    </label>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>Stores</title>
+</head>
+<body>
+<section layout:fragment="content">
+    <div class="container" th:switch="${stores}">
+        <h2 th:case="null">No stores yet!</h2>
+        <div th:case="*">
+            <h2>Stores</h2>
+            <table class="mdl-data-table mdl-js-data-table">
+                <thead>
+	                <tr>
+	                	<th class="mdl-data-table__cell--non-numeric"></th>
+						<th class="mdl-data-table__cell--non-numeric"></th>
+	                    <th class="mdl-data-table__cell--non-numeric">Name</th>
+	                    <th class="mdl-data-table__cell--non-numeric">Email</th>
+	                    <th class="mdl-data-table__cell--non-numeric">Description</th>
+	                    <th class="mdl-data-table__cell--non-numeric">Website</th>
+	                    <th class="mdl-data-table__cell--non-numeric">Logo</th>
+	                    <th></th>
+	                    <th></th>
+	                    <th></th>
+	<!--                    <th class="mdl-data-table__cell&#45;&#45;non-numeric">Address</th>-->
+	<!--                    <th class="mdl-data-table__cell&#45;&#45;non-numeric">PayPal</th>-->
+	                </tr>
+                </thead>
+                <tbody>
+	                <tr th:each="store : ${stores}">
+	                	<td><a th:href="@{'/backoffice/stores/edit/' + ${store.id}}"><span class="material-icons">create</span></a></td>
+						<td><a style="color: red" th:href="@{'/backoffice/stores/delete/' + ${store.id}}"><span class="material-icons">delete</span></a></td>
+	                    <td th:text="${store.name}"></td>
+	                    <td th:text="${store.email}"></td>
+	                    <td th:maxlength="5" th:text="${#strings.abbreviate(store.description,50)}"></td>
+	                    <td th:text="${store.website}"></td>
+	                     <td><img style="height: 75px; box-shadow: 0px 0px 10px rgba(0,0,0,0.2)" th:if="${store.getLogoBinaryAsString()}" th:src="'data:image/png;base64,' + ${store.getLogoBinaryAsString()}"></img></td>
+	                    <td><a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" th:href="@{'/backoffice/stores/' + ${store.id}}"><i class="material-icons">search</i></a></td>
+						<td><a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" th:href="@{'/backoffice/stores/' + ${store.id}} + '/coupontemplates/list'">c. templates</a></td>
+						<td><a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" th:href="@{'/backoffice/stores/' + ${store.id}} + '/orders/list'">orders</a></td>
+	<!--                    <td th:text="${store.address}"></td>-->
+	<!--                    <td th:text="${store.paypal}"></td>-->
+	                </tr>
+                </tbody>
+            </table>
+        </div>
+        <p>
+            <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" href="/backoffice/stores/add"><i class="material-icons">add</i></a>
+        </p>
+    </div>
+</section>
+
+</body>
+</html>

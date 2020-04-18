@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>Store hinzufügen</title>
+<body>
+<section layout:fragment="content">
+    
+    <a style="margin:20px;" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" th:href="@{'/backoffice/stores/' + ${storeid} + '/coupontemplates/list'}"><span class="material-icons">keyboard_backspace</span>Back to list</a>
+    
+    <div class="container" style="margin:20px;">
+        <div class="demo-list-action mdl-list">
+            <div class="mdl-list__item">
+                <span class="mdl-list__item-primary-content">Name</span>
+                <span class="mdl-list__item-secondary-content" th:if="${coupontemplate.name != null}" th:text="${coupontemplate.name}"></span>
+            </div>
+    
+            <div class="mdl-list__item">
+                <span class="mdl-list__item-primary-content">Description</span>
+                <span class="mdl-list__item-secondary-content" th:if="${coupontemplate.description != null}" th:text="${coupontemplate.description}"></span>
+            </div>
+    
+            <div class="mdl-list__item">
+                <span class="mdl-list__item-primary-content">Price</span>
+                <span class="mdl-list__item-secondary-content" th:if="${coupontemplate.price != null}" th:text="${coupontemplate.price}"></span>
+            </div>
+    
+            <div class="mdl-list__item">
+                <span class="mdl-list__item-primary-content">Value</span>
+                <span class="mdl-list__item-secondary-content" th:if="${coupontemplate.value != null}" th:text="${coupontemplate.value}"></span>
+            </div>
+            
+            <div class="mdl-list__item">
+                <span class="mdl-list__item-primary-content">Taxes</span>
+                <span class="mdl-list__item-secondary-content" th:if="${coupontemplate.taxes != null}" th:text="${coupontemplate.taxes}"></span>
+            </div>
+            <br>
+            <hr>
+            <h4>Coupon Image full size</h4>
+            <img th:src="'data:image/png;base64,' + ${coupon_image}" style="box-shadow: 0px 0px 10px black"></img>
+            <br>
+            <hr>
+            <h4>Coupon image thumbnail</h4>
+            <img th:if="${coupon_image_thumbnail != null}" th:src="'data:image/png;base64,' + ${coupon_image_thumbnail}" style="box-shadow: 0px 0px 10px black"></img>
+        </div>
+    </div>
+</section>
+</body>
+</html>

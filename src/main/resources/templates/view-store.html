@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>View Store</title>
+<body>
+<section layout:fragment="content">
+    
+    <a style="margin:20px;" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" th:href="@{/backoffice/stores/list}"><span class="material-icons">keyboard_backspace</span>Back to list</a>
+    
+    <div class="container" style="margin:20px;">
+    	<h4>Store information</h4>
+        <div class="demo-list-action mdl-list">
+            <div class="mdl-list__item">
+                <span class="mdl-list__item-primary-content">Name</span>
+                <span class="mdl-list__item-secondary-content" th:text="${store.name}"></span>
+            </div>
+    
+            <div class="mdl-list__item">
+                <span class="mdl-list__item-primary-content">E-Mail (public)</span>
+                <span class="mdl-list__item-secondary-content" th:text="${store.email}"></span>
+            </div>
+            
+            <div class="mdl-list__item">
+                <span class="mdl-list__item-primary-content">E-Mail (internal)</span>
+                <span class="mdl-list__item-secondary-content" th:text="${store.emailinternal}"></span>
+            </div>
+    
+    		<div class="mdl-list__item">
+                <span class="mdl-list__item-primary-content">Slogan</span>
+                <span class="mdl-list__item-secondary-content" th:text="${store.slogan}"></span>
+            </div>
+    
+            <div class="mdl-list__item">
+                <span class="mdl-list__item-primary-content">Description</span>
+                <span class="mdl-list__item-secondary-content" th:text="${store.description}"></span>
+            </div>
+    
+            <div class="mdl-list__item">
+                <span class="mdl-list__item-primary-content">Tel.:</span>
+                <span class="mdl-list__item-secondary-content" th:text="${store.telnumber}"></span>
+            </div>
+    
+            <hr /> 
+    		<h4>Address</h4>
+            <div th:insert="view-address"></div>
+    
+            <hr />
+            
+            <h4>Paypal</h4>
+            <div th:insert="view-paypal"></div>
+            
+            <hr />
+            
+            <h4>Websites</h4>
+            <div th:insert="view-socialmedia"></div>
+            
+            <hr>
+            
+            <h5>Logo (full size)</h5>
+            <img th:src="'data:image/png;base64,' + ${logo_full}"></img>
+            
+            <hr>
+            
+            <h5>Thumbnail photo</h5>
+            <img th:src="'data:image/png;base64,' + ${logo_thumbnail}"></img>
+            
+            <hr>
+            
+            <h5>Cover photo</h5>
+            <img th:src="'data:image/png;base64,' + ${cover_photo}"></img>
+        </div>
+    </div>
+</section>
+</body>
+</html>

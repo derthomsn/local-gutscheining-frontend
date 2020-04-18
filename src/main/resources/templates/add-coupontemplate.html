@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>Add Coup. Template</title>
+</head>
+<body>
+<section layout:fragment="content">
+    
+    <div class="container">
+        <form action="#" th:action="@{'/backoffice/stores/' + ${id} + '/coupontemplates'}" th:object="${coupontemplate}" method="post" enctype="multipart/form-data">
+        
+            <label class="mdl-textfield mdl-js-textfield" for="name">
+                <label class="mdl-textfield__label">Name</label>
+                <input class="mdl-textfield__input" type="text" th:field="*{name}" id="name">
+                <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+            </label>
+            
+            <label class="mdl-textfield mdl-js-textfield" for="description">
+                <label class="mdl-textfield__label">Description</label>
+                <input class="mdl-textfield__input" type="text" th:field="*{description}" id="description">
+                <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
+            </label>
+            
+            <label class="mdl-textfield mdl-js-textfield" for="price">
+                <label class="mdl-textfield__label">Price</label>
+                <input class="mdl-textfield__input" type="number" step="0.01" th:field="*{price}" id="price">
+                <span th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></span>
+            </label>
+            
+            <label class="mdl-textfield mdl-js-textfield" for="value">
+                <label class="mdl-textfield__label">Value</label>
+                <input class="mdl-textfield__input" type="number" step="0.01" th:field="*{value}" id="value">
+                <span th:if="${#fields.hasErrors('value')}" th:errors="*{value}"></span>
+            </label>
+            
+            <label class="mdl-textfield mdl-js-textfield" for="value">
+                <label class="mdl-textfield__label">Taxes</label>
+                <input class="mdl-textfield__input" type="number" step="0.01" th:field="*{taxes}" id="taxes">
+                <span th:if="${#fields.hasErrors('taxes')}" th:errors="*{taxes}"></span>
+            </label>
+            
+            <hr>
+            
+            <h5>Coupon Logo</h5>
+            <label class="mdl-textfield mdl-js-textfield" for="couponImage">
+                <input class="mdl-textfield__input" type="file" accept="image/*" th:field="*{couponImage}" id="couponImage">
+                <span th:if="${#fields.hasErrors('couponImage')}" th:errors="*{couponImage}"></span>
+            </label>
+            
+            <hr>
+            
+            <h5>Coupon Thumbnail</h5>
+            <label class="mdl-textfield mdl-js-textfield" for="couponImageThumbnail">
+                <input class="mdl-textfield__input" type="file" accept="image/*" th:field="*{couponImageThumbnail}" id="couponImageThumbnail">
+                <span th:if="${#fields.hasErrors('couponImageThumbnail')}" th:errors="*{couponImageThumbnail}"></span>
+            </label>
+            
+            <br>
+            
+            <div>
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Add coupon</button>
+            </div>
+        </form>
+    </div>
+</section>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div class="container">
+        
+        <div class="demo-list-action mdl-list">
+            <div class="mdl-list__item">
+                <span class="mdl-list__item-primary-content">Client ID</span>
+                <span class="mdl-list__item-secondary-content" th:if="${store.paypalInformation != null}" th:text="${store.paypalInformation.clientId}"></span>
+            </div>
+    
+            <div class="mdl-list__item">
+                <span class="mdl-list__item-primary-content">Client secret</span>
+                <span class="mdl-list__item-secondary-content" th:if="${store.paypalInformation != null}" th:text="${store.paypalInformation.clientSecret}"></span>
+            </div>
+    
+            <div class="mdl-list__item">
+                <span class="mdl-list__item-primary-content">Sandbox Account</span>
+                <span class="mdl-list__item-secondary-content" th:if="${store.paypalInformation != null}" th:text="${store.paypalInformation.sandBoxAccount}"></span>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

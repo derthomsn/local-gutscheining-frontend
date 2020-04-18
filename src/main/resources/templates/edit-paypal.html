@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<body>
+    <label class="mdl-textfield mdl-js-textfield" for="paypalInformation.clientId">
+        <span class="mdl-textfield__label">Client ID</span>
+        <input class="mdl-textfield__input" type="text" th:field="*{paypalInformation.clientId}" id="paypalInformation.clientId">
+        <span th:if="${#fields.hasErrors('paypalInformation.clientId')}" th:errors="*{paypalInformation.clientId}"></span>
+    </label>
+    
+    <label class="mdl-textfield mdl-js-textfield" for="paypalInformation.clientSecret">
+        <span class="mdl-textfield__label">Client secret</span>
+        <input class="mdl-textfield__input" type="text" th:field="*{paypalInformation.clientSecret}" id="paypalInformation.clientSecret">
+        <span th:if="${#fields.hasErrors('paypalInformation.clientSecret')}" th:errors="*{paypalInformation.clientSecret}"></span>
+    </label>
+
+    <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="paypalInformation.sandBoxAccount">
+        <input type="checkbox" class="mdl-checkbox__input" checked th:field="*{paypalInformation.sandBoxAccount}" id="paypalInformation.sandBoxAccount">
+        <span class="mdl-checkbox__label">Sandbox account</span>
+        <span th:if="${#fields.hasErrors('paypalInformation.sandBoxAccount')}" th:errors="*{paypalInformation.sandBoxAccount}"></span>
+    </label>
+</body>
+</html>

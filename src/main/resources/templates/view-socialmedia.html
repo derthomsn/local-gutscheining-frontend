@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div class="container">
+        
+        <div class="demo-list-action mdl-list">
+            <div class="mdl-list__item">
+                <span class="mdl-list__item-primary-content">Linkedin</span>
+                <span class="mdl-list__item-secondary-content" th:if="${store.socialLinkedin != null}" th:text="${store.socialLinkedin}"></span>
+            </div>
+            <div class="mdl-list__item">
+                <span class="mdl-list__item-primary-content">Instagram</span>
+                <span class="mdl-list__item-secondary-content" th:if="${store.socialInstagram != null}" th:text="${store.socialInstagram}"></span>
+            </div>
+            <div class="mdl-list__item">
+                <span class="mdl-list__item-primary-content">Facebook</span>
+                <span class="mdl-list__item-secondary-content" th:if="${store.socialFacebook != null}" th:text="${store.socialFacebook}"></span>
+            </div>
+            <div class="mdl-list__item">
+                <span class="mdl-list__item-primary-content">Website</span>
+                <span class="mdl-list__item-secondary-content" th:if="${store.website != null}" th:text="${store.website}"></span>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

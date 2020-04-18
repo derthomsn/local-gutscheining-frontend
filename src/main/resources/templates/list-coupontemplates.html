@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>Coupon templates</title>
+</head>
+<body>
+<section layout:fragment="content">
+    <div class="container" th:switch="${store}">
+        <h2 th:case="null">No coupon templates yet!</h2>
+        
+        <a style="margin:20px;" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" th:href="@{/backoffice/stores/list}"><span class="material-icons">keyboard_backspace</span>Back to list</a>
+        
+        <div th:case="*">
+            <h2>Coupon templates</h2>
+            <table class="mdl-data-table mdl-js-data-table">
+                <thead>
+	                <tr>
+	                	<th></th>
+	                	<th></th>
+	                    <th class="mdl-data-table__cell--non-numeric">Name</th>
+	                    <th class="mdl-data-table__cell--non-numeric">Description</th>
+	                    <th class="mdl-data-table__cell--non-numeric">Price</th>
+	                    <th class="mdl-data-table__cell--non-numeric">Value</th>
+	                    <th class="mdl-data-table__cell--non-numeric">Taxes</th>
+	                    <th class="mdl-data-table__cell--non-numeric">Thumbnail</th>
+	                    <th></th>
+	                </tr>
+                </thead>
+                <tbody>
+	                <tr th:each="template : ${coupontemplates}">
+	                	<td><a th:href="@{'/backoffice/stores/' + ${id} + '/coupontemplate/edit/' + ${template.id}}"><span class="material-icons">create</span></a></td>
+						<td><a style="color: red" th:href="@{'/backoffice/stores/' + ${id} + '/coupontemplate/delete/' + ${template.id}}"><span class="material-icons">delete</span></a></td>
+	                    <td th:text="${template.name}"></td>
+	                    <td th:if="${template.description != null}" th:maxlength="5" th:text="${#strings.abbreviate(template.description,50)}"></td>
+	                    <td th:if="${template.price != null}" th:text="${template.price}"></td>
+	                    <td th:if="${template.value != null}" th:text="${template.value}"></td>
+	                    <td th:if="${template.taxes != null}" th:text="${template.taxes}"></td>
+	                    <td><img style="height: 75px; box-shadow: 0px 0px 10px rgba(0,0,0,0.2)" th:if="${template.getCouponImageThumbnailBinaryAsString()}" th:src="'data:image/png;base64,' + ${template.getCouponImageThumbnailBinaryAsString()}"></img></td>
+	                    <td><a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" th:href="@{'/backoffice/stores/' + ${id} + '/coupontemplate/' + ${template.id}}"><i class="material-icons">search</i></a></td>
+	                </tr>
+                </tbody>
+            </table>
+        </div>
+        <p>
+            <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" th:href="@{'/backoffice/stores/' + ${store.id} + '/coupontemplates/add'}"><i class="material-icons">add</i></a>
+        </p>
+    </div>
+</section>
+
+</body>
+</html>
